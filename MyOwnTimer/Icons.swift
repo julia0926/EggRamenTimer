@@ -11,20 +11,30 @@ struct Icons: View{
     var actionText : String
     var title : String
     var image : String
+    
     var body: some View{
-        Button(action: {
-            print(actionText)
-        }, label: {
-            VStack(spacing: 20){
-                Image(image)
-                    .resizable()
-                    .frame(width: 120, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                Text(title)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.black)
-                    .font(.system(size: 20))
-            }
-        })
+        VStack(spacing: 20){
+            Image(image)
+                .resizable()
+                .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            Text(title)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.black)
+                .font(.system(size: 20))
+        }
+//        Button(action: {
+//            print(actionText)
+//        }, label: {
+//            VStack(spacing: 20){
+//                Image(image)
+//                    .resizable()
+//                    .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                Text(title)
+//                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+//                    .foregroundColor(.black)
+//                    .font(.system(size: 20))
+//            }
+//        })
     }
 }
 

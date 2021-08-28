@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingTimerScreen: View {
     var body: some View {
-        Text("타이머 그냥 넣을 예정")
+        Text("타이머 늘 거야")
         
     }
 }
