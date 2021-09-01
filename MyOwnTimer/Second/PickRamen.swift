@@ -8,11 +8,24 @@ import SwiftUI
 
 struct PickRamen: View{
     var body: some View{
-        VStack {
+        VStack(spacing: 40) {
             NavigationLink(
                 destination: CustomTimer(),
                 label: {
-                    Text("라면 종류별로 선택")
+                    Text("타이머 설정 ! ")
+                        .font(.system(size: 30))
+                        .foregroundColor(.blue)
+                        .fontWeight(.bold)
+                        
+                })
+            NavigationLink(
+                destination: CustomTimer(),
+                label: {
+                    Text("타이머 설정 ! ")
+                        .font(.system(size: 30))
+                        .foregroundColor(.purple)
+                        .fontWeight(.bold)
+
                 })
         }
     }

@@ -13,7 +13,7 @@ struct Icons: View{
     var image : String
     
     var body: some View{
-        VStack(spacing: 20){
+        VStack(spacing: 10){
             Image(image)
                 .resizable()
                 .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -21,7 +21,7 @@ struct Icons: View{
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.black)
                 .font(.system(size: 20))
-        }
+        }.padding(30)
 //        Button(action: {
 //            print(actionText)
 //        }, label: {

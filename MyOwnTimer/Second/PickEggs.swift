@@ -27,20 +27,28 @@ struct PickEggs: View{
             .background(Color.gray.opacity(0.1))
             .cornerRadius(20)
             
-            
-            NavigationLink(
-                destination: CustomTimer(),
-                label: {
-                    List {
+            ScrollView{
+                NavigationLink(
+                    destination: CustomTimer(),
+                    label: {
                         SelectIconList(image: "soft_egg", title: "완전 반숙", needTime: 8, description: "건들이면 톡 터질듯한 노른자가       먹고 싶다면 ?", bgColor: Color.orange)
                             .hideRowSeparator(insets: EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), background: Color.white)
+                    })
+                NavigationLink(
+                    destination: CustomTimer(),
+                    label: {
                         SelectIconList(image: "medium_egg", title: "반숙", needTime: 10, description: "촉촉하고 포슬포슬                              노른자가 땡긴다면 ?", bgColor: Color.yellow)
                             .hideRowSeparator(insets: EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), background: Color.white)
+                    })
+                NavigationLink(
+                    destination: CustomTimer(),
+                    label: {
                         SelectIconList(image: "hard_egg", title: "완숙", needTime: 12, description: "오리지널 노른자 맛을                      느끼고 싶다면 ?", bgColor: ColorManager.hardEggColor)
                             .hideRowSeparator(insets: EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), background: Color.white)
                      
-                    }
-                })
+                    })
+            }
+           
         } //VStack
         .navigationTitle("계란 선택")
     } //body

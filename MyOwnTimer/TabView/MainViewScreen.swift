@@ -7,20 +7,85 @@
 
 import SwiftUI
 
+
+extension Color{
+    static let menu = Color("menu")
+    static let menuList = Color("menuList")
+
+}
+
 struct MainViewScreen: View {
+    
 
     var body: some View {
-        NavigationView(content: {
-            VStack(spacing: 40) {
-                NavigationLink(
-                    destination: PickRamen()) {
-                    Icons(actionText: "라면 클릭!", title: "라면 끓이기", image: "ramen") }
-                
-                NavigationLink(
-                    destination: PickEggs()) {
-                    Icons(actionText: "계란 클릭!", title: "계란 삶기", image: "fireeggs") }
-            }.navigationTitle("선택하기")
-        })
+        NavigationView{
+            VStack {
+                Spacer()
+                HStack{
+                    NavigationLink(
+                        destination: SettingList(),
+                        label: {
+                            Image(systemName: "list.dash")
+                                .font(.largeTitle)
+                        })
+                    Spacer()
+                    
+//                    Text("라면 Pick !")
+//                        .font(.system(size: 20))
+//                        .bold()
+//                    Spacer()
+                    NavigationLink(
+                        destination: SettingList(),
+                        label: {
+                            Image(systemName: "person.circle")
+                                .font(.largeTitle)
+                        })
+                    //프로필로 이동하는 네비게이션
+                    
+                }.padding(.trailing)
+                .padding(.leading)
+                .padding(.bottom, 10)
+                Text("Menu")
+                    .font(.system(size: 32))
+                    .frame(width: 220, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.menu)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                ScrollView{
+                    VStack{
+                        HStack(alignment: .center, spacing: 18){
+                            NavigationLink(
+                                destination: PickRamen()) {
+                                Icons(actionText: "라면 클릭!", title: "라면 끓이기", image: "ramen") }
+
+                            NavigationLink(
+                                destination: PickEggs()) {
+                                Icons(actionText: "계란 클릭!", title: "계란 삶기", image: "fireeggs") }
+                        }
+                        HStack(alignment: .center, spacing: 18){
+                            NavigationLink(
+                                destination: PickRamen()) {
+                                Icons(actionText: "라면 클릭!", title: "라면 끓이기", image: "ramen") }
+
+                            NavigationLink(
+                                destination: PickEggs()) {
+                                Icons(actionText: "계란 클릭!", title: "계란 삶기", image: "fireeggs") }
+                        }
+                        
+
+                    }
+                    .frame(maxHeight: .infinity)
+                    .border(Color.menuList, width: 4)
+                    .cornerRadius(6)
+                    
+                    
+                }
+
+            }
+            //VStack
+            .navigationTitle("Back")
+            .navigationBarHidden(true)
+        } //NavigationView
 
     }
 }
