@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import AVFoundation
 
 
 extension Color{
@@ -17,17 +18,18 @@ extension Color{
 struct CustomTimer: View{
     
     @State var start = false
+    @State var end : Bool = false
     @State var to : CGFloat = 0
     @State var count = 0
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect() //1초간격으로 타이머
-    
     @State var showTime : Int  //화면에 보여질 분초
     
     let ripeTime : Int
     let title : String
     var timer: Timer = Timer()
-    
-    init(_ ripeTime: Int = 60, _ showTime: Int = 60, _ title: String = "머머계란") {
+    @State var sound: AVAudioPlayer!
+
+    init(_ ripeTime: Int = 3, _ showTime: Int = 3, _ title: String = "머머계란") {
         self.ripeTime = ripeTime
         self.showTime = self.ripeTime
         self.title = title
@@ -70,7 +72,6 @@ struct CustomTimer: View{
                                 self.to = 0
                             }
                         }
-                        
                         self.start.toggle()
                     }, label: {
                         VStack(spacing: 15){
@@ -83,14 +84,15 @@ struct CustomTimer: View{
                                 .bold()
                         }.padding(.vertical)
                         .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.yellow)
+                        .background(self.end ? Color.gray.opacity(0.12) : Color.yellow)
                         .clipShape(Circle())
                         .shadow(radius: 3)
-                    })
+                    }).disabled(end)
                     
                     //다시 시작 버튼
                     Button(action: {
                         self.count = 0
+                        self.end.toggle()
                         self.showTime = self.ripeTime
                         withAnimation(.default){
                             self.to = 0
@@ -106,11 +108,11 @@ struct CustomTimer: View{
                                 .bold()
                         }.padding(.vertical)
                         .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.gray.opacity(0.12))
+                        .background(self.end ? Color.yellow : Color.gray.opacity(0.12))
                         .clipShape(Circle())
                         .shadow(radius: 3)
 
-                    })
+                    }).disabled(!end)
                 } //HStack
                 .padding(.top, 30)
                 
@@ -127,7 +129,7 @@ struct CustomTimer: View{
         //타이머 실행하기 위해
         .onReceive(self.time) { (_) in
 
-            if self.start{
+            if self.start{ //true
                 if self.count != ripeTime{
 
                     self.count += 1
@@ -137,10 +139,13 @@ struct CustomTimer: View{
                     withAnimation(.default){
                         self.to = CGFloat(self.count) / CGFloat(ripeTime)
                     }
-                }else{
-                    self.start.toggle()
-                    self.Notify()
-                    
+                }else{ //타이머가 끝나면
+                    self.start.toggle() //false로 바뀜
+                    self.end.toggle()
+                    Notify()
+                    playSound()
+                    timer.invalidate()
+
                 }
 
             }
@@ -152,7 +157,13 @@ struct CustomTimer: View{
             let seconds = Int(time) % 60
             return String(format:"%02i:%02i", minutes, seconds)
     }
-
+    
+    func playSound() {
+            let url = Bundle.main.url(forResource: "PopSoundEffect", withExtension: "mp3")
+            sound = try! AVAudioPlayer(contentsOf: url!)
+            sound.play()
+                    
+    }
     //끝낼 때 알림 보내기
     func Notify() {
         let content = UNMutableNotificationContent() //알림 메세지 지정할 수 있는

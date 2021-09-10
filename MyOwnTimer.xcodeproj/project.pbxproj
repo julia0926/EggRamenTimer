@@ -14,6 +14,7 @@
 		6C0B30A326D1041900F941EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C0B30A226D1041900F941EB /* Preview Assets.xcassets */; };
 		6C0B30A626D1041900F941EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0B30A426D1041900F941EB /* LaunchScreen.storyboard */; };
 		6C4A8C6726DF14400008599F /* SettingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4A8C6626DF14400008599F /* SettingList.swift */; };
+		6C52371F26EBD72700D67586 /* PopSoundEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C52371E26EBD72700D67586 /* PopSoundEffect.mp3 */; };
 		6CC123D726DA2AE900FBDD20 /* PickEggs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123D626DA2AE900FBDD20 /* PickEggs.swift */; };
 		6CC123DF26DA35AB00FBDD20 /* PickRamen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123DE26DA35AB00FBDD20 /* PickRamen.swift */; };
 		6CC123E126DA35EF00FBDD20 /* CustomTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123E026DA35EF00FBDD20 /* CustomTimer.swift */; };
@@ -33,6 +34,7 @@
 		6C0B30A526D1041900F941EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C0B30A726D1041900F941EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C4A8C6626DF14400008599F /* SettingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingList.swift; sourceTree = "<group>"; };
+		6C52371E26EBD72700D67586 /* PopSoundEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PopSoundEffect.mp3; sourceTree = "<group>"; };
 		6CC123D626DA2AE900FBDD20 /* PickEggs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickEggs.swift; sourceTree = "<group>"; };
 		6CC123DE26DA35AB00FBDD20 /* PickRamen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickRamen.swift; sourceTree = "<group>"; };
 		6CC123E026DA35EF00FBDD20 /* CustomTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimer.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				6CC123E226DA38BE00FBDD20 /* SelectIconList.swift */,
 				6CEA2F5B26D10F160038E1B2 /* Icons.swift */,
 				6C0B309F26D1041900F941EB /* Assets.xcassets */,
+				6C52371E26EBD72700D67586 /* PopSoundEffect.mp3 */,
 				6C0B30A426D1041900F941EB /* LaunchScreen.storyboard */,
 				6C0B30A726D1041900F941EB /* Info.plist */,
 				6C0B30A126D1041900F941EB /* Preview Content */,
@@ -175,6 +178,7 @@
 				6C0B30A626D1041900F941EB /* LaunchScreen.storyboard in Resources */,
 				6C0B30A326D1041900F941EB /* Preview Assets.xcassets in Resources */,
 				6C0B30A026D1041900F941EB /* Assets.xcassets in Resources */,
+				6C52371F26EBD72700D67586 /* PopSoundEffect.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,7 +28,7 @@ struct PickEggs: View{
             
             ScrollView{
                 NavigationLink(
-                    destination: CustomTimer(480, 480, "완전 반숙"),
+                    destination: CustomTimer(10, 10, "완전 반숙"),
                     label: {
                         SelectIconList(image: "soft_egg", title: "완전 반숙", needTime: 8, description: "건들이면 톡 터질듯한 노른자가       먹고 싶다면 ?", bgColor: Color.orange)
                             .hideRowSeparator(insets: EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), background: Color.white)
