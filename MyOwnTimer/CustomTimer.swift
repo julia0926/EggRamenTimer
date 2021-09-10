@@ -8,43 +8,63 @@
 import SwiftUI
 import UserNotifications
 
+
+extension Color{
+    static let btn = Color("restart_button")
+}
+
+
 struct CustomTimer: View{
     
     @State var start = false
     @State var to : CGFloat = 0
     @State var count = 0
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect() //1초간격으로 타이머
+    
+    @State var showTime : Int  //화면에 보여질 분초
+    
+    let ripeTime : Int
+    let title : String
+    var timer: Timer = Timer()
+    
+    init(_ ripeTime: Int = 60, _ showTime: Int = 60, _ title: String = "머머계란") {
+        self.ripeTime = ripeTime
+        self.showTime = self.ripeTime
+        self.title = title
+    }
 
     var body : some View{
         ZStack{
-            Color.black.opacity(0.06).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+//            Color.black.opacity(0.06).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             VStack{
+                Text("🥚 \(title)")
+                    .font(.system(size: 30))
+                    .fontWeight(.bold).padding(.bottom, 40)
+
                 ZStack {
                     Circle()
                         .trim(from: 0, to: 1)
-                        .stroke(Color.black.opacity(0.09), style: StrokeStyle(lineWidth: 35, lineCap: .round))
-                        .frame(width: 280, height: 280) //배경 원형 타이머
+                        .stroke(Color.black.opacity(0.09), style: StrokeStyle(lineWidth: 30, lineCap: .round))
+                        .frame(width: 300, height: 300) //배경 원형 타이머
                     Circle()
                         .trim(from: 0, to: self.to)
-                        .stroke(Color.red, style: StrokeStyle(lineWidth: 35, lineCap: .round))
-                        .frame(width: 280, height: 280)
+                        .stroke(Color.yellow, style: StrokeStyle(lineWidth: 30, lineCap: .round))
+                        .frame(width: 300, height: 300)
                         .rotationEffect(.init(degrees: -90))//시간 올라가는 타이머
-                    VStack{
-                        Text("\(self.count)")
+                    HStack{
+                        Text("\(timeString(time: showTime))")
                             .font(.system(size: 65))
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        Text("Of 15")
-                            .font(.title)
-                            .padding(.top)
+                        
                     } //남은 시간 타이머
                     
-                }
+                }.padding(.bottom, 70)
                 
                 //버튼 구현
-                HStack(spacing: 20){
+                HStack(spacing: 80){
                     //play-pause 버튼
                     Button(action: {
-                        if self.count == 15{
+                        if self.count == ripeTime{
                             self.count = 0
                             withAnimation(.default){
                                 self.to = 0
@@ -53,40 +73,46 @@ struct CustomTimer: View{
                         
                         self.start.toggle()
                     }, label: {
-                        HStack(spacing: 15){
+                        VStack(spacing: 15){
                             Image(systemName: self.start ? "pause.fill" : "play.fill")
                                 .foregroundColor(.white)
+                                .font(.title)
+
                             Text(self.start ? "Pause" : "Play")
                                 .foregroundColor(.white)
+                                .bold()
                         }.padding(.vertical)
-                        .frame(width: (UIScreen.main.bounds.width / 2) - 55)
-                        .background(Color.red)
-                        .clipShape(Capsule())
-                        .shadow(radius: 5)
+                        .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.yellow)
+                        .clipShape(Circle())
+                        .shadow(radius: 3)
                     })
                     
                     //다시 시작 버튼
                     Button(action: {
                         self.count = 0
+                        self.showTime = self.ripeTime
                         withAnimation(.default){
                             self.to = 0
                         }
                         
                     }, label: {
-                        HStack(spacing: 15){
+                        VStack(spacing: 7){
                             Image(systemName: "arrow.clockwise")
-                                .foregroundColor(.red)
+                                .foregroundColor(.white)
+                                .font(.title)
                             Text("Restart")
-                                .foregroundColor(.red)
+                                .foregroundColor(.white)
+                                .bold()
                         }.padding(.vertical)
-                        .frame(width: (UIScreen.main.bounds.width / 2) - 55)
-                        .background(
-                            Capsule()
-                                .stroke(Color.red, lineWidth: 2)
-                        ).shadow(radius: 5)
+                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.gray.opacity(0.12))
+                        .clipShape(Circle())
+                        .shadow(radius: 3)
+
                     })
                 } //HStack
-                .padding(.top, 55)
+                .padding(.top, 30)
                 
             } //Vstack
         } //Zstack
@@ -100,23 +126,34 @@ struct CustomTimer: View{
         
         //타이머 실행하기 위해
         .onReceive(self.time) { (_) in
+
             if self.start{
-                if self.count != 15{
+                if self.count != ripeTime{
+
                     self.count += 1
+                    self.showTime -= 1
+
                     print(self.count)
-                    
                     withAnimation(.default){
-                        self.to = CGFloat(self.count) / 15
+                        self.to = CGFloat(self.count) / CGFloat(ripeTime)
                     }
                 }else{
                     self.start.toggle()
                     self.Notify()
+                    
                 }
-                
+
             }
         }
     }
-    
+    //시간 계산
+    func timeString(time: Int) -> String {
+            let minutes = Int(time) / 60
+            let seconds = Int(time) % 60
+            return String(format:"%02i:%02i", minutes, seconds)
+    }
+
+    //끝낼 때 알림 보내기
     func Notify() {
         let content = UNMutableNotificationContent() //알림 메세지 지정할 수 있는
         content.title = "Message"
@@ -130,7 +167,6 @@ struct CustomTimer: View{
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
         //알림을 "예약" 할 수 있다. 알림요청을 처리
     }
-    
     
 }
 

@@ -12,7 +12,6 @@ struct ColorManager{
 }
 
 struct PickEggs: View{
-   
     
     var body: some View{
         VStack(spacing: 15) {
@@ -29,19 +28,19 @@ struct PickEggs: View{
             
             ScrollView{
                 NavigationLink(
-                    destination: CustomTimer(),
+                    destination: CustomTimer(480, 480, "완전 반숙"),
                     label: {
                         SelectIconList(image: "soft_egg", title: "완전 반숙", needTime: 8, description: "건들이면 톡 터질듯한 노른자가       먹고 싶다면 ?", bgColor: Color.orange)
                             .hideRowSeparator(insets: EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), background: Color.white)
                     })
                 NavigationLink(
-                    destination: CustomTimer(),
+                    destination: CustomTimer(600, 600, "반숙"),
                     label: {
                         SelectIconList(image: "medium_egg", title: "반숙", needTime: 10, description: "촉촉하고 포슬포슬                              노른자가 땡긴다면 ?", bgColor: Color.yellow)
                             .hideRowSeparator(insets: EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), background: Color.white)
                     })
                 NavigationLink(
-                    destination: CustomTimer(),
+                    destination: CustomTimer(720, 720, "완숙"),
                     label: {
                         SelectIconList(image: "hard_egg", title: "완숙", needTime: 12, description: "오리지널 노른자 맛을                      느끼고 싶다면 ?", bgColor: ColorManager.hardEggColor)
                             .hideRowSeparator(insets: EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), background: Color.white)
