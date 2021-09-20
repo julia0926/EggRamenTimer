@@ -18,10 +18,11 @@
 		6CC123D726DA2AE900FBDD20 /* PickEggs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123D626DA2AE900FBDD20 /* PickEggs.swift */; };
 		6CC123DF26DA35AB00FBDD20 /* PickRamen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123DE26DA35AB00FBDD20 /* PickRamen.swift */; };
 		6CC123E126DA35EF00FBDD20 /* CustomTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123E026DA35EF00FBDD20 /* CustomTimer.swift */; };
-		6CC123E326DA38BE00FBDD20 /* SelectIconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123E226DA38BE00FBDD20 /* SelectIconList.swift */; };
+		6CC123E326DA38BE00FBDD20 /* SelectEggIconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123E226DA38BE00FBDD20 /* SelectEggIconList.swift */; };
 		6CEA2F5C26D10F160038E1B2 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEA2F5B26D10F160038E1B2 /* Icons.swift */; };
 		6CEA2F5E26D113680038E1B2 /* MainViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEA2F5D26D113680038E1B2 /* MainViewScreen.swift */; };
 		6CEA2F6026D114060038E1B2 /* SettingTimerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEA2F5F26D114060038E1B2 /* SettingTimerScreen.swift */; };
+		6CFA2E1826F8934000FF4B1E /* SelectRamenIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA2E1726F8934000FF4B1E /* SelectRamenIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,10 +39,11 @@
 		6CC123D626DA2AE900FBDD20 /* PickEggs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickEggs.swift; sourceTree = "<group>"; };
 		6CC123DE26DA35AB00FBDD20 /* PickRamen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickRamen.swift; sourceTree = "<group>"; };
 		6CC123E026DA35EF00FBDD20 /* CustomTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimer.swift; sourceTree = "<group>"; };
-		6CC123E226DA38BE00FBDD20 /* SelectIconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIconList.swift; sourceTree = "<group>"; };
+		6CC123E226DA38BE00FBDD20 /* SelectEggIconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEggIconList.swift; sourceTree = "<group>"; };
 		6CEA2F5B26D10F160038E1B2 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		6CEA2F5D26D113680038E1B2 /* MainViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewScreen.swift; sourceTree = "<group>"; };
 		6CEA2F5F26D114060038E1B2 /* SettingTimerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTimerScreen.swift; sourceTree = "<group>"; };
+		6CFA2E1726F8934000FF4B1E /* SelectRamenIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRamenIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,12 +77,11 @@
 			isa = PBXGroup;
 			children = (
 				6CC123E526DA391B00FBDD20 /* TabView */,
-				6CC123E426DA390200FBDD20 /* Second */,
+				6CC123E426DA390200FBDD20 /* Pick */,
 				6C0B309926D1041700F941EB /* AppDelegate.swift */,
 				6C0B309B26D1041700F941EB /* SceneDelegate.swift */,
 				6C0B309D26D1041700F941EB /* ContentView.swift */,
 				6CC123E026DA35EF00FBDD20 /* CustomTimer.swift */,
-				6CC123E226DA38BE00FBDD20 /* SelectIconList.swift */,
 				6CEA2F5B26D10F160038E1B2 /* Icons.swift */,
 				6C0B309F26D1041900F941EB /* Assets.xcassets */,
 				6C52371E26EBD72700D67586 /* PopSoundEffect.mp3 */,
@@ -99,13 +100,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		6CC123E426DA390200FBDD20 /* Second */ = {
+		6CC123E426DA390200FBDD20 /* Pick */ = {
 			isa = PBXGroup;
 			children = (
+				6CC123E226DA38BE00FBDD20 /* SelectEggIconList.swift */,
 				6CC123DE26DA35AB00FBDD20 /* PickRamen.swift */,
+				6CFA2E1726F8934000FF4B1E /* SelectRamenIcon.swift */,
 				6CC123D626DA2AE900FBDD20 /* PickEggs.swift */,
 			);
-			path = Second;
+			path = Pick;
 			sourceTree = "<group>";
 		};
 		6CC123E526DA391B00FBDD20 /* TabView */ = {
@@ -193,10 +196,11 @@
 				6C0B309C26D1041700F941EB /* SceneDelegate.swift in Sources */,
 				6CEA2F5C26D10F160038E1B2 /* Icons.swift in Sources */,
 				6CC123E126DA35EF00FBDD20 /* CustomTimer.swift in Sources */,
+				6CFA2E1826F8934000FF4B1E /* SelectRamenIcon.swift in Sources */,
 				6CEA2F5E26D113680038E1B2 /* MainViewScreen.swift in Sources */,
 				6CC123DF26DA35AB00FBDD20 /* PickRamen.swift in Sources */,
 				6C4A8C6726DF14400008599F /* SettingList.swift in Sources */,
-				6CC123E326DA38BE00FBDD20 /* SelectIconList.swift in Sources */,
+				6CC123E326DA38BE00FBDD20 /* SelectEggIconList.swift in Sources */,
 				6CC123D726DA2AE900FBDD20 /* PickEggs.swift in Sources */,
 				6CEA2F6026D114060038E1B2 /* SettingTimerScreen.swift in Sources */,
 				6C0B309E26D1041700F941EB /* ContentView.swift in Sources */,

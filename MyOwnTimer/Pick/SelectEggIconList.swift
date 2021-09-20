@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelectIconList: View{
+struct SelectEggIconList: View{
     
     var image: String
     var title: String
@@ -43,11 +43,13 @@ struct SelectIconList: View{
         .frame(height: 160)
         .background(bgColor)
         .cornerRadius(20)
+        .shadow(color: .gray, radius: 5, x: 4, y: 6)
+
     }
 }
 
 struct SelectIconList_Previews: PreviewProvider {
     static var previews: some View {
-        SelectIconList(image: "soft_egg", title: "완전 반숙", needTime: 8, description: "촉촉하고 부드러운 노른자로            삶아집니다.", bgColor: Color.orange)
+        SelectEggIconList(image: "soft_egg", title: "완전 반숙", needTime: 8, description: "촉촉하고 부드러운 노른자로            삶아집니다.", bgColor: Color.orange)
     }
 }
