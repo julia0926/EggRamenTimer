@@ -22,17 +22,17 @@ struct SelectRamenIcon: View{
             
             VStack(alignment: .leading, spacing: 0){
                 Text(title)
-                    .font(.system(size: 23))
+                    .font(.system(size: 20))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                Text("\(needTime)분")
-                    .font(.system(size: 17))
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+//                Text("\(needTime)분")
+//                    .font(.system(size: 16))
+//                    .fontWeight(.bold)
+//                    .foregroundColor(.white)
             }
 
         }
-        .frame(width: 150, height: 190)
+        .frame(width: 150, height: 180)
         .background(bgColor)
         .cornerRadius(30)
         .shadow(color: .gray, radius: 6, x: 2, y: 5)
@@ -48,6 +48,6 @@ struct SelectRamenIcon: View{
 
 struct SelectRamenIcon_Previews: PreviewProvider {
     static var previews: some View {
-        SelectRamenIcon(title: "진라면", needTime: 23, bgColor: Color.pink)
+        SelectRamenIcon(title: "까르보불닭", needTime: 23, bgColor: Color.pink)
     }
 }

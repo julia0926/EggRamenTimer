@@ -46,6 +46,7 @@ struct MainViewScreen: View {
                     .background(Color.menu)
                     .foregroundColor(.white)
                     .cornerRadius(8)
+                    .shadow(color: .gray, radius: 6, x: 2, y: 5)
                 ScrollView{
                     VStack{
                         HStack(alignment: .center, spacing: 18){
@@ -61,9 +62,7 @@ struct MainViewScreen: View {
                         
                         
                     }
-                    .frame(maxHeight: .infinity)
-                    .border(Color.menuList, width: 4)
-                    .cornerRadius(6)
+                    
                     
                     
                 }
