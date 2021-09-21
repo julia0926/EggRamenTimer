@@ -9,19 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView{
-            MainViewScreen()
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
-                }
-            SettingTimerScreen()
-                .tabItem {
-                    Image(systemName: "timer")
-                    Text("StopWatch")
-                }
-            
-        }
+        MainViewScreen()
+
+//        TabView{
+//            MainViewScreen()
+//                .tabItem {
+//                    Image(systemName: "house")
+//                    Text("Home")
+//                }
+//            SettingTimerScreen()
+//                .tabItem {
+//                    Image(systemName: "timer")
+//                    Text("StopWatch")
+//                }
+//
+//        }
         
         
         

@@ -13,8 +13,6 @@ import AVFoundation
 extension Color{
     static let btn = Color("restart_button")
 }
-
-
 struct CustomTimer: View{
     
     @State var start = false
@@ -23,23 +21,27 @@ struct CustomTimer: View{
     @State var count = 0
     @State var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect() //1초간격으로 타이머
     @State var showTime : Int  //화면에 보여질 분초
-    
     let ripeTime : Int
     let title : String
     var timer: Timer = Timer()
+    let timerColor: Color
+    let whatIs: Bool //위에 text 계란일땐 삶기, 라면일 땐 끓이기로
     @State var sound: AVAudioPlayer!
 
-    init(_ ripeTime: Int = 3, _ showTime: Int = 3, _ title: String = "머머계란") {
+    init(_ ripeTime: Int = 3, _ showTime: Int = 3, _ title: String = "머머계란", _ timerColor: Color = Color.열라면색, _ whatIs: Bool = true) {
         self.ripeTime = ripeTime
         self.showTime = self.ripeTime
         self.title = title
+        self.timerColor = timerColor
+        self.whatIs = whatIs
     }
 
     var body : some View{
         ZStack{
 //            Color.black.opacity(0.06).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             VStack{
-                Text("🥚 \(title)")
+                let text = whatIs ? "끓이기🍜" : "삶기🥚"
+                Text("\(title) "+text)
                     .font(.system(size: 30))
                     .fontWeight(.bold).padding(.bottom, 40)
 
@@ -50,7 +52,7 @@ struct CustomTimer: View{
                         .frame(width: 300, height: 300) //배경 원형 타이머
                     Circle()
                         .trim(from: 0, to: self.to)
-                        .stroke(Color.yellow, style: StrokeStyle(lineWidth: 30, lineCap: .round))
+                        .stroke(timerColor, style: StrokeStyle(lineWidth: 30, lineCap: .round))
                         .frame(width: 300, height: 300)
                         .rotationEffect(.init(degrees: -90))//시간 올라가는 타이머
                     HStack{
@@ -84,7 +86,7 @@ struct CustomTimer: View{
                                 .bold()
                         }.padding(.vertical)
                         .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(self.end ? Color.gray.opacity(0.12) : Color.yellow)
+                        .background(self.end ? Color.gray.opacity(0.12) : timerColor)
                         .clipShape(Circle())
                         .shadow(radius: 3)
                     }).disabled(end)
@@ -108,7 +110,7 @@ struct CustomTimer: View{
                                 .bold()
                         }.padding(.vertical)
                         .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(self.end ? Color.yellow : Color.gray.opacity(0.12))
+                        .background(self.end ? timerColor : Color.gray.opacity(0.12))
                         .clipShape(Circle())
                         .shadow(radius: 3)
 
