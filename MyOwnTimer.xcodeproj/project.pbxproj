@@ -15,6 +15,7 @@
 		6C0B30A626D1041900F941EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0B30A426D1041900F941EB /* LaunchScreen.storyboard */; };
 		6C4A8C6726DF14400008599F /* SettingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4A8C6626DF14400008599F /* SettingList.swift */; };
 		6C52371F26EBD72700D67586 /* PopSoundEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C52371E26EBD72700D67586 /* PopSoundEffect.mp3 */; };
+		6C7837C82715CE2F00F47B26 /* DropViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7837C72715CE2F00F47B26 /* DropViewDelegate.swift */; };
 		6CC123D726DA2AE900FBDD20 /* PickEggs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123D626DA2AE900FBDD20 /* PickEggs.swift */; };
 		6CC123DF26DA35AB00FBDD20 /* PickRamen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123DE26DA35AB00FBDD20 /* PickRamen.swift */; };
 		6CC123E126DA35EF00FBDD20 /* CustomTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC123E026DA35EF00FBDD20 /* CustomTimer.swift */; };
@@ -37,6 +38,7 @@
 		6C0B30A726D1041900F941EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C4A8C6626DF14400008599F /* SettingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingList.swift; sourceTree = "<group>"; };
 		6C52371E26EBD72700D67586 /* PopSoundEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PopSoundEffect.mp3; sourceTree = "<group>"; };
+		6C7837C72715CE2F00F47B26 /* DropViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropViewDelegate.swift; sourceTree = "<group>"; };
 		6CC123D626DA2AE900FBDD20 /* PickEggs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickEggs.swift; sourceTree = "<group>"; };
 		6CC123DE26DA35AB00FBDD20 /* PickRamen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickRamen.swift; sourceTree = "<group>"; };
 		6CC123E026DA35EF00FBDD20 /* CustomTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimer.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				6CC123E226DA38BE00FBDD20 /* SelectEggIconList.swift */,
 				6CC123DE26DA35AB00FBDD20 /* PickRamen.swift */,
+				6C7837C72715CE2F00F47B26 /* DropViewDelegate.swift */,
 				6CFA2E1726F8934000FF4B1E /* SelectRamenIcon.swift */,
 				6CC123D626DA2AE900FBDD20 /* PickEggs.swift */,
 			);
@@ -197,6 +200,7 @@
 			files = (
 				6C0B309A26D1041700F941EB /* AppDelegate.swift in Sources */,
 				6CF4124626FA22E30023A930 /* PickMenu.swift in Sources */,
+				6C7837C82715CE2F00F47B26 /* DropViewDelegate.swift in Sources */,
 				6C0B309C26D1041700F941EB /* SceneDelegate.swift in Sources */,
 				6CEA2F5C26D10F160038E1B2 /* Icons.swift in Sources */,
 				6CC123E126DA35EF00FBDD20 /* CustomTimer.swift in Sources */,

@@ -28,7 +28,7 @@ struct CustomTimer: View{
     let whatIs: Bool //위에 text 계란일땐 삶기, 라면일 땐 끓이기로
     @State var sound: AVAudioPlayer!
 
-    init(_ ripeTime: Int = 3, _ showTime: Int = 3, _ title: String = "머머계란", _ timerColor: Color = Color.열라면색, _ whatIs: Bool = true) {
+    init(_ ripeTime: Int = 3, _ showTime: Int = 3, _ title: String = "머머계란", _ timerColor: Color = Color.열라면, _ whatIs: Bool = true) {
         self.ripeTime = ripeTime
         self.showTime = self.ripeTime
         self.title = title

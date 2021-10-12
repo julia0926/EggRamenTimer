@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SelectRamenIcon: View{
     var title: String
-    var needTime: Int
     var bgColor: Color
     
     var body: some View{
@@ -25,10 +24,6 @@ struct SelectRamenIcon: View{
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-//                Text("\(needTime)분")
-//                    .font(.system(size: 16))
-//                    .fontWeight(.bold)
-//                    .foregroundColor(.white)
             }
 
         }
@@ -48,6 +43,6 @@ struct SelectRamenIcon: View{
 
 struct SelectRamenIcon_Previews: PreviewProvider {
     static var previews: some View {
-        SelectRamenIcon(title: "까르보불닭", needTime: 23, bgColor: Color.pink)
+        SelectRamenIcon(title: "까르보불닭", bgColor: Color.pink)
     }
 }

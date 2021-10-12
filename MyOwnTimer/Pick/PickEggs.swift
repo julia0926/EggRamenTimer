@@ -15,18 +15,17 @@ struct PickEggs: View{
     
     var body: some View{
         VStack(spacing: 15) {
-            VStack(alignment: .center, spacing: 7) {
-                Text("여러분의 계란 삶기 취향은 ?")
-                    .bold()
-                    .font(.system(size: 20))
-                Divider().opacity(0)
-
-            }
-            .frame(height: 60)
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(20)
-            
             ScrollView{
+                VStack(alignment: .center, spacing: 7) {
+                    Text("여러분의 계란 삶기 취향은 ?")
+                        .bold()
+                        .font(.system(size: 20))
+                    Divider().opacity(0)
+
+                }
+                .frame(height: 60)
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(20)
                 NavigationLink(
                     destination: CustomTimer(480, 480, "완전반숙",Color.orange, false),
                     label: {
@@ -49,7 +48,7 @@ struct PickEggs: View{
             }
            
         } //VStack
-        .navigationTitle("계란 선택")
+        .navigationTitle("계란 선택").navigationBarTitleDisplayMode(.inline)
     } //body
 }
 

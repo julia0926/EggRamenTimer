@@ -10,7 +10,7 @@ import SwiftUI
 
 extension Color{
     static let menu = Color("menu")
-    static let menuList = Color("menuList")
+    static let selectList = Color("selectList")
 
 }
 
@@ -27,7 +27,7 @@ struct MainViewScreen: View {
                         label: {
                             Image(systemName: "list.dash")
                                 .font(.largeTitle)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.selectList)
                         })
                     Spacer()
                     
@@ -41,15 +41,16 @@ struct MainViewScreen: View {
                 .padding(.leading)
                 .padding(.bottom, 10)
                 Text("Menu")
+                    .fontWeight(.bold)
                     .font(.system(size: 32))
                     .frame(width: 220, height: 45, alignment: .center)
                     .background(Color.menu)
                     .foregroundColor(.white)
                     .cornerRadius(8)
-                    .shadow(color: .gray, radius: 6, x: 2, y: 5)
+                    .shadow(color: .gray, radius: 3, x: 2, y: 3)
                 ScrollView{
                     VStack{
-                        HStack(alignment: .center, spacing: 18){
+                        VStack(alignment: .center, spacing: 18){
                             NavigationLink(
                                 destination: PickRamen()) {
                                 Icons(actionText: "라면 클릭!", title: "라면 끓이기", image: "ramen") }
